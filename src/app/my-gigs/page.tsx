@@ -70,7 +70,7 @@ export default function MyGigsPage() {
   const [activeGigs, setActiveGigs] = useState<Gig[]>([]);
   const [pendingReleaseGigs, setPendingReleaseGigs] = useState<Gig[]>([]);
   const [historyGigs, setHistoryGigs] = useState<Gig[]>([]);
-  
+
   const [loadingSummary, setLoadingSummary] = useState(true);
   const [loadingGigs, setLoadingGigs] = useState(true);
   const [selectedGig, setSelectedGig] = useState<Gig | null>(null);
@@ -90,7 +90,7 @@ export default function MyGigsPage() {
     setLoadingSummary(true);
     try {
       const response = await fetch(
-        `/api/my-gigs/summary?user_id=${userId}&user_type=${userType}`
+        `/api/my-gigs/summary?user_id=${userId}&user_type=${userType}`,
       );
       if (!response.ok) throw new Error("Failed to fetch summary");
       const data = await response.json();
@@ -107,7 +107,7 @@ export default function MyGigsPage() {
     setLoadingGigs(true);
     try {
       const response = await fetch(
-        `/api/my-gigs/list?user_id=${userId}&user_type=${userType}&tab=${tab}`
+        `/api/my-gigs/list?user_id=${userId}&user_type=${userType}&tab=${tab}`,
       );
       if (!response.ok) throw new Error("Failed to fetch gigs");
       const data = await response.json();
@@ -148,7 +148,10 @@ export default function MyGigsPage() {
       cancelled: { label: "Cancelled", className: "bg-red-500" },
     };
 
-    const config = statusMap[status] || { label: status, className: "bg-gray-500" };
+    const config = statusMap[status] || {
+      label: status,
+      className: "bg-gray-500",
+    };
     return (
       <Badge className={`${config.className} text-white`}>{config.label}</Badge>
     );
@@ -167,8 +170,8 @@ export default function MyGigsPage() {
           </p>
           <div className="flex flex-wrap items-center gap-4 text-sm">
             <span className="flex items-center gap-1">
-              <DollarSign className="h-4 w-4" />
-              ${gig.paymentAmount.toLocaleString()}
+              <DollarSign className="h-4 w-4" />$
+              {gig.paymentAmount.toLocaleString()}
             </span>
             <span className="flex items-center gap-1">
               <Clock className="h-4 w-4" />
@@ -214,7 +217,8 @@ export default function MyGigsPage() {
       <div className="flex items-center gap-4 mb-4 text-sm">
         <span className="flex items-center gap-1">
           <CheckCircle2 className="h-4 w-4 text-accent" />
-          {gig.milestones.filter((m) => m.status === "approved").length}/{gig.milestones.length} Approved
+          {gig.milestones.filter((m) => m.status === "approved").length}/
+          {gig.milestones.length} Approved
         </span>
         <span className="flex items-center gap-1">
           <Lock className="h-4 w-4 text-blue-500" />
@@ -319,13 +323,20 @@ export default function MyGigsPage() {
           ) : null}
 
           {/* Tabs for Active/Pending Release/History */}
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-6">
+          <Tabs
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="space-y-6"
+          >
             <TabsList className="grid w-full max-w-2xl grid-cols-3">
               <TabsTrigger value="active" className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
                 Active
               </TabsTrigger>
-              <TabsTrigger value="pending_release" className="flex items-center gap-2">
+              <TabsTrigger
+                value="pending_release"
+                className="flex items-center gap-2"
+              >
                 <AlertCircle className="h-4 w-4" />
                 Pending Release
               </TabsTrigger>
@@ -370,7 +381,9 @@ export default function MyGigsPage() {
               ) : pendingReleaseGigs.length === 0 ? (
                 <Card className="p-12 glass-effect border-border/40 text-center">
                   <Clock className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">No Pending Releases</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    No Pending Releases
+                  </h3>
                   <p className="text-muted-foreground">
                     No milestones are waiting for approval
                   </p>
@@ -393,7 +406,9 @@ export default function MyGigsPage() {
               ) : historyGigs.length === 0 ? (
                 <Card className="p-12 glass-effect border-border/40 text-center">
                   <CheckCircle2 className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-xl font-semibold mb-2">No Completed Gigs Yet</h3>
+                  <h3 className="text-xl font-semibold mb-2">
+                    No Completed Gigs Yet
+                  </h3>
                   <p className="text-muted-foreground">
                     Your completed gigs will appear here
                   </p>
@@ -417,8 +432,9 @@ export default function MyGigsPage() {
               <div className="flex-1">
                 <h3 className="font-semibold mb-2">Build Your Reputation</h3>
                 <p className="text-sm text-muted-foreground mb-3">
-                  Complete gigs on time and with high quality to build your on-chain
-                  reputation. Higher reputation leads to more opportunities and better rates.
+                  Complete gigs on time and with high quality to build your
+                  on-chain reputation. Higher reputation leads to more
+                  opportunities and better rates.
                 </p>
                 <Button variant="outline" size="sm">
                   View My Reputation

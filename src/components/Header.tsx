@@ -1,6 +1,17 @@
 "use client";
 
-import { Bell, Wallet, User, ChevronDown, LayoutDashboard, TrendingUp, Briefcase, Building2, LogOut, CheckCircle } from "lucide-react";
+import {
+  Bell,
+  Wallet,
+  User,
+  ChevronDown,
+  LayoutDashboard,
+  TrendingUp,
+  Briefcase,
+  Building2,
+  LogOut,
+  CheckCircle,
+} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -29,7 +40,7 @@ export default function Header() {
 
   const handleBrowseClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    window.open('/browse', '_blank', 'noopener,noreferrer');
+    window.open("/browse", "_blank", "noopener,noreferrer");
   };
 
   const handleConnectWallet = () => {
@@ -69,32 +80,47 @@ export default function Header() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="start" className="w-48">
                   <DropdownMenuItem asChild>
-                    <Link href="/dashboard" className="flex items-center gap-2 cursor-pointer">
+                    <Link
+                      href="/dashboard"
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <LayoutDashboard className="h-4 w-4" />
                       Dashboard
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/investor" className="flex items-center gap-2 cursor-pointer">
+                    <Link
+                      href="/investor"
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <TrendingUp className="h-4 w-4" />
                       Investor Pool
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/worker" className="flex items-center gap-2 cursor-pointer">
+                    <Link
+                      href="/worker"
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <User className="h-4 w-4" />
                       Worker Profile
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link href="/employer" className="flex items-center gap-2 cursor-pointer">
+                    <Link
+                      href="/employer"
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <Building2 className="h-4 w-4" />
                       Employer Panel
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem asChild>
-                    <Link href="/my-gigs" className="flex items-center gap-2 cursor-pointer">
+                    <Link
+                      href="/my-gigs"
+                      className="flex items-center gap-2 cursor-pointer"
+                    >
                       <Briefcase className="h-4 w-4" />
                       My Gigs
                     </Link>
@@ -102,14 +128,17 @@ export default function Header() {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <a 
-                href="/browse" 
+              <a
+                href="/browse"
                 onClick={handleBrowseClick}
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
               >
                 Browse Gigs
               </a>
-              <Link href="/#how-it-works" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              <Link
+                href="/#how-it-works"
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
                 How It Works
               </Link>
             </nav>
@@ -128,15 +157,22 @@ export default function Header() {
                     <CheckCircle className="h-3 w-3" />
                     <span>Connected to Base Sepolia</span>
                   </div>
-                  <span className="text-muted-foreground font-mono">{formatAddress(address)}</span>
+                  <span className="text-muted-foreground font-mono">
+                    {formatAddress(address)}
+                  </span>
                 </div>
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="outline" className="gap-2 border-primary/50">
+                    <Button
+                      variant="outline"
+                      className="gap-2 border-primary/50"
+                    >
                       <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center">
                         <User className="h-4 w-4" />
                       </div>
-                      <span className="hidden sm:inline">{formatAddress(address)}</span>
+                      <span className="hidden sm:inline">
+                        {formatAddress(address)}
+                      </span>
                       <ChevronDown className="h-4 w-4" />
                     </Button>
                   </DropdownMenuTrigger>
@@ -160,7 +196,7 @@ export default function Header() {
                 </DropdownMenu>
               </>
             ) : (
-              <Button 
+              <Button
                 className="crypto-gradient text-white hover:opacity-90"
                 onClick={handleConnectWallet}
               >

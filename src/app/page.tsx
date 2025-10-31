@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { 
-  Briefcase, 
-  Shield, 
-  Wallet, 
-  TrendingUp, 
-  Users, 
+import {
+  Briefcase,
+  Shield,
+  Wallet,
+  TrendingUp,
+  Users,
   Globe,
   ArrowRight,
   CheckCircle,
@@ -15,7 +15,7 @@ import {
   Zap,
   Award,
   Search,
-  FileText
+  FileText,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -29,7 +29,7 @@ export default function LandingPage() {
   const router = useRouter();
 
   const handleBrowseGigs = () => {
-    router.push('/browse');
+    router.push("/browse");
   };
 
   return (
@@ -40,39 +40,40 @@ export default function LandingPage() {
       <section className="relative overflow-hidden py-20 md:py-32">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-accent/10 to-background pointer-events-none" />
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
-        
+
         <div className="container relative z-10 px-8 mx-auto max-w-[1400px]">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <Badge className="crypto-gradient text-white border-0 px-4 py-1.5">
               <Sparkles className="w-3 h-3 mr-1" />
               Powered by Smart Contracts on Base
             </Badge>
-            
+
             <h1 className="text-4xl md:text-6xl font-bold leading-tight">
               Freelance Gigs with{" "}
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
                 Crypto Payments
-              </span>
-              {" "}& Smart Escrow
+              </span>{" "}
+              & Smart Escrow
             </h1>
-            
+
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Access instant financing for your projects with decentralized escrow protection. 
-              Get paid in crypto, build your reputation on-chain, and work with confidence.
+              Access instant financing for your projects with decentralized
+              escrow protection. Get paid in crypto, build your reputation
+              on-chain, and work with confidence.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="crypto-gradient text-white hover:opacity-90 w-full sm:w-auto"
                 onClick={handleBrowseGigs}
               >
                 <Search className="mr-2 h-5 w-5" />
                 Find Gigs
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="w-full sm:w-auto border-primary/50 hover:bg-primary/10"
                 onClick={() => router.push("#post")}
               >
@@ -114,7 +115,9 @@ export default function LandingPage() {
                   <stat.icon className="w-8 h-8 text-primary" />
                 </div>
                 <div className="text-3xl font-bold">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
+                <div className="text-sm text-muted-foreground">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </div>
@@ -135,7 +138,8 @@ export default function LandingPage() {
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Three easy steps to start earning or hiring with blockchain-powered protection
+              Three easy steps to start earning or hiring with
+              blockchain-powered protection
             </p>
           </div>
 
@@ -144,34 +148,44 @@ export default function LandingPage() {
               {
                 step: "01",
                 title: "Connect & Browse",
-                description: "Connect your wallet and explore gigs that match your skills. Or post a job and find the perfect freelancer.",
+                description:
+                  "Connect your wallet and explore gigs that match your skills. Or post a job and find the perfect freelancer.",
                 icon: Globe,
-                color: "from-purple-500 to-purple-600"
+                color: "from-purple-500 to-purple-600",
               },
               {
                 step: "02",
                 title: "Secure with Escrow",
-                description: "Employers deposit payment into smart contract escrow. Workers can request advance financing with collateral options.",
+                description:
+                  "Employers deposit payment into smart contract escrow. Workers can request advance financing with collateral options.",
                 icon: Lock,
-                color: "from-blue-500 to-cyan-500"
+                color: "from-blue-500 to-cyan-500",
               },
               {
                 step: "03",
                 title: "Work & Get Paid",
-                description: "Complete the work, submit deliverables, and get paid automatically when approved. Build your on-chain reputation.",
+                description:
+                  "Complete the work, submit deliverables, and get paid automatically when approved. Build your on-chain reputation.",
                 icon: Zap,
-                color: "from-pink-500 to-rose-600"
-              }
+                color: "from-pink-500 to-rose-600",
+              },
             ].map((step, index) => (
-              <Card key={index} className="relative p-8 glass-effect border-primary/20 hover:border-primary/50 transition-all group">
+              <Card
+                key={index}
+                className="relative p-8 glass-effect border-primary/20 hover:border-primary/50 transition-all group"
+              >
                 <div className="absolute top-4 right-4 text-6xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
                   {step.step}
                 </div>
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-6`}>
+                <div
+                  className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} flex items-center justify-center mb-6`}
+                >
                   <step.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  {step.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -198,38 +212,49 @@ export default function LandingPage() {
               {
                 icon: Shield,
                 title: "Smart Escrow Protection",
-                description: "Payments locked in smart contracts until work is verified and approved"
+                description:
+                  "Payments locked in smart contracts until work is verified and approved",
               },
               {
                 icon: Wallet,
                 title: "Instant Financing",
-                description: "Access advance funding with flexible collateral options before starting work"
+                description:
+                  "Access advance funding with flexible collateral options before starting work",
               },
               {
                 icon: Award,
                 title: "On-Chain Reputation",
-                description: "Build verifiable credentials and NFT badges based on your work history"
+                description:
+                  "Build verifiable credentials and NFT badges based on your work history",
               },
               {
                 icon: TrendingUp,
                 title: "Crypto Payments",
-                description: "Get paid in stablecoins or crypto tokens instantly upon completion"
+                description:
+                  "Get paid in stablecoins or crypto tokens instantly upon completion",
               },
               {
                 icon: Users,
                 title: "Global Marketplace",
-                description: "Connect with clients and freelancers worldwide without borders"
+                description:
+                  "Connect with clients and freelancers worldwide without borders",
               },
               {
                 icon: Zap,
                 title: "Auto Repayment",
-                description: "Advance loans automatically deducted from escrow when work is paid"
-              }
+                description:
+                  "Advance loans automatically deducted from escrow when work is paid",
+              },
             ].map((feature, index) => (
-              <Card key={index} className="p-6 glass-effect border-primary/20 hover:glow-effect transition-all">
+              <Card
+                key={index}
+                className="p-6 glass-effect border-primary/20 hover:glow-effect transition-all"
+              >
                 <feature.icon className="w-10 h-10 text-primary mb-4" />
                 <h3 className="text-lg font-bold mb-2">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground">{feature.description}</p>
+                <p className="text-sm text-muted-foreground">
+                  {feature.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -248,20 +273,21 @@ export default function LandingPage() {
               </span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Join thousands of freelancers and employers using blockchain technology for secure, transparent work relationships
+              Join thousands of freelancers and employers using blockchain
+              technology for secure, transparent work relationships
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="crypto-gradient text-white hover:opacity-90 w-full sm:w-auto"
                 onClick={() => setShowOnboarding(true)}
               >
                 <Wallet className="mr-2 h-5 w-5" />
                 Get Started Now
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
+              <Button
+                size="lg"
+                variant="outline"
                 className="w-full sm:w-auto border-primary/50"
               >
                 Learn More
@@ -291,30 +317,73 @@ export default function LandingPage() {
               <h4 className="font-semibold mb-4">Platform</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <button onClick={handleBrowseGigs} className="hover:text-foreground transition-colors">
+                  <button
+                    onClick={handleBrowseGigs}
+                    className="hover:text-foreground transition-colors"
+                  >
                     Browse Gigs
                   </button>
                 </li>
-                <li><a href="#post" className="hover:text-foreground">Post a Gig</a></li>
-                <li><a href="#how-it-works" className="hover:text-foreground">How It Works</a></li>
-                <li><a href="#demo" className="hover:text-foreground">Demo Mode</a></li>
+                <li>
+                  <a href="#post" className="hover:text-foreground">
+                    Post a Gig
+                  </a>
+                </li>
+                <li>
+                  <a href="#how-it-works" className="hover:text-foreground">
+                    How It Works
+                  </a>
+                </li>
+                <li>
+                  <a href="#demo" className="hover:text-foreground">
+                    Demo Mode
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Resources</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground">Documentation</a></li>
-                <li><a href="#" className="hover:text-foreground">Help Center</a></li>
-                <li><a href="#" className="hover:text-foreground">Community</a></li>
-                <li><a href="#" className="hover:text-foreground">Blog</a></li>
+                <li>
+                  <a href="#" className="hover:text-foreground">
+                    Documentation
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-foreground">
+                    Help Center
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-foreground">
+                    Community
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-foreground">
+                    Blog
+                  </a>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-foreground">Terms of Service</a></li>
-                <li><a href="#" className="hover:text-foreground">Privacy Policy</a></li>
-                <li><a href="#" className="hover:text-foreground">Cookie Policy</a></li>
+                <li>
+                  <a href="#" className="hover:text-foreground">
+                    Terms of Service
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-foreground">
+                    Privacy Policy
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover:text-foreground">
+                    Cookie Policy
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
@@ -324,7 +393,10 @@ export default function LandingPage() {
         </div>
       </footer>
 
-      <OnboardingModal open={showOnboarding} onClose={() => setShowOnboarding(false)} />
+      <OnboardingModal
+        open={showOnboarding}
+        onClose={() => setShowOnboarding(false)}
+      />
     </div>
   );
 }

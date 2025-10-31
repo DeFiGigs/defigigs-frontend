@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, Filter, SlidersHorizontal, Briefcase, Loader2, Database } from "lucide-react";
+import { Search, Filter, SlidersHorizontal, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -15,23 +15,18 @@ import {
 } from "@/components/ui/select";
 import Header from "@/components/Header";
 import GigCard from "@/components/GigCard";
-import { useGigs } from "@/hooks/useGigs";
-import Faucet from "@/components/Faucet";
 
 export default function BrowseGigsPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedBudget, setSelectedBudget] = useState("all");
-  const [showFaucet, setShowFaucet] = useState(false);
 
-  // Fetch gigs from blockchain or use dummy data
-  const { gigs: allGigs, isLoading, isUsingBlockchain } = useGigs();
-
-  const dummyGigsForReference = [
+  const allGigs = [
     {
       id: 1,
       title: "Smart Contract Security Audit",
-      description: "Need experienced auditor for DeFi protocol review with comprehensive testing",
+      description:
+        "Need experienced auditor for DeFi protocol review with comprehensive testing",
       budget: "$5,000 - $8,000",
       category: "Security",
       skills: ["Solidity", "Security", "DeFi"],
@@ -42,7 +37,8 @@ export default function BrowseGigsPage() {
     {
       id: 2,
       title: "NFT Marketplace Frontend Development",
-      description: "Build responsive UI for NFT trading platform with Web3 integration",
+      description:
+        "Build responsive UI for NFT trading platform with Web3 integration",
       budget: "$3,000 - $5,000",
       category: "Development",
       skills: ["React", "Web3.js", "TypeScript"],
@@ -53,7 +49,8 @@ export default function BrowseGigsPage() {
     {
       id: 3,
       title: "Whitepaper Content Writing",
-      description: "Technical whitepaper for new blockchain project with detailed tokenomics",
+      description:
+        "Technical whitepaper for new blockchain project with detailed tokenomics",
       budget: "$2,000 - $3,000",
       category: "Content",
       skills: ["Technical Writing", "Blockchain", "Research"],
@@ -64,7 +61,8 @@ export default function BrowseGigsPage() {
     {
       id: 4,
       title: "DeFi Protocol UI/UX Design",
-      description: "Design modern and intuitive interface for lending/borrowing platform",
+      description:
+        "Design modern and intuitive interface for lending/borrowing platform",
       budget: "$4,000 - $6,000",
       category: "Design",
       skills: ["UI/UX", "Figma", "Web3"],
@@ -75,7 +73,8 @@ export default function BrowseGigsPage() {
     {
       id: 5,
       title: "Token Smart Contract Development",
-      description: "Create ERC-20 token with custom features and anti-bot mechanisms",
+      description:
+        "Create ERC-20 token with custom features and anti-bot mechanisms",
       budget: "$3,500 - $5,500",
       category: "Development",
       skills: ["Solidity", "Smart Contracts", "Testing"],
@@ -86,7 +85,8 @@ export default function BrowseGigsPage() {
     {
       id: 6,
       title: "Blockchain Marketing Campaign",
-      description: "Full marketing strategy for new NFT project launch on multiple platforms",
+      description:
+        "Full marketing strategy for new NFT project launch on multiple platforms",
       budget: "$2,500 - $4,000",
       category: "Marketing",
       skills: ["Marketing", "Social Media", "Community"],
@@ -97,7 +97,8 @@ export default function BrowseGigsPage() {
     {
       id: 7,
       title: "Web3 Integration for E-commerce",
-      description: "Integrate crypto payments and NFT loyalty program into existing platform",
+      description:
+        "Integrate crypto payments and NFT loyalty program into existing platform",
       budget: "$6,000 - $9,000",
       category: "Development",
       skills: ["Web3.js", "React", "Node.js"],
@@ -108,7 +109,8 @@ export default function BrowseGigsPage() {
     {
       id: 8,
       title: "DAO Governance Documentation",
-      description: "Create comprehensive governance documentation and proposal templates",
+      description:
+        "Create comprehensive governance documentation and proposal templates",
       budget: "$1,500 - $2,500",
       category: "Content",
       skills: ["Technical Writing", "DAO", "Governance"],
@@ -119,7 +121,8 @@ export default function BrowseGigsPage() {
     {
       id: 9,
       title: "NFT Collection Artwork",
-      description: "Design 10,000 unique NFT characters with traits and rarity system",
+      description:
+        "Design 10,000 unique NFT characters with traits and rarity system",
       budget: "$8,000 - $12,000",
       category: "Design",
       skills: ["Illustration", "NFT", "Digital Art"],
@@ -147,12 +150,16 @@ export default function BrowseGigsPage() {
   ];
 
   const filteredGigs = allGigs.filter((gig) => {
-    const matchesSearch = gig.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         gig.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         gig.skills.some(skill => skill.toLowerCase().includes(searchQuery.toLowerCase()));
-    
-    const matchesCategory = selectedCategory === "all" || gig.category === selectedCategory;
-    
+    const matchesSearch =
+      gig.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      gig.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      gig.skills.some((skill) =>
+        skill.toLowerCase().includes(searchQuery.toLowerCase()),
+      );
+
+    const matchesCategory =
+      selectedCategory === "all" || gig.category === selectedCategory;
+
     return matchesSearch && matchesCategory;
   });
 
@@ -163,18 +170,22 @@ export default function BrowseGigsPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden py-12 border-b border-border/40">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-background pointer-events-none" />
-        
+
         <div className="container relative z-10 px-8 mx-auto max-w-[1400px]">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <div className="flex items-center justify-center gap-2 mb-4">
               <Briefcase className="w-8 h-8 text-primary" />
               <h1 className="text-4xl md:text-5xl font-bold">
-                Browse <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Gigs</span>
+                Browse{" "}
+                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  Gigs
+                </span>
               </h1>
             </div>
-            
+
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover freelance opportunities with crypto payments and smart escrow protection
+              Discover freelance opportunities with crypto payments and smart
+              escrow protection
             </p>
 
             {/* Search Bar */}
@@ -188,7 +199,10 @@ export default function BrowseGigsPage() {
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              <Button size="lg" className="crypto-gradient text-white hover:opacity-90 h-12 px-8">
+              <Button
+                size="lg"
+                className="crypto-gradient text-white hover:opacity-90 h-12 px-8"
+              >
                 <Search className="mr-2 h-5 w-5" />
                 Search
               </Button>
@@ -196,7 +210,10 @@ export default function BrowseGigsPage() {
 
             {/* Filters */}
             <div className="flex flex-wrap items-center justify-center gap-3 pt-4">
-              <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+              <Select
+                value={selectedCategory}
+                onValueChange={setSelectedCategory}
+              >
                 <SelectTrigger className="w-[180px] bg-card/50 border-border/50">
                   <Filter className="mr-2 h-4 w-4" />
                   <SelectValue />
@@ -231,71 +248,24 @@ export default function BrowseGigsPage() {
       {/* Gigs Grid */}
       <section className="py-12">
         <div className="container px-8 mx-auto max-w-[1400px]">
-          {/* Blockchain Status & Faucet */}
-          <div className="mb-6">
-            <Card className={`p-4 ${isUsingBlockchain ? 'border-green-500/50 bg-green-500/5' : 'border-amber-500/50 bg-amber-500/5'}`}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <Database className={`w-5 h-5 ${isUsingBlockchain ? 'text-green-500' : 'text-amber-500'}`} />
-                  <div>
-                    <p className="font-semibold">
-                      {isUsingBlockchain ? '🟢 Connected to Blockchain' : '🟡 Using Demo Data'}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {isUsingBlockchain
-                        ? 'Showing real gigs from Base Sepolia smart contracts'
-                        : 'Deploy contracts and update addresses in src/lib/contracts.ts to see real data'}
-                    </p>
-                  </div>
-                </div>
-                {isUsingBlockchain && (
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => setShowFaucet(!showFaucet)}
-                  >
-                    {showFaucet ? 'Hide' : 'Show'} Faucet
-                  </Button>
-                )}
-              </div>
-            </Card>
-          </div>
-
-          {/* Faucet Modal */}
-          {showFaucet && (
-            <div className="mb-6">
-              <Faucet />
-            </div>
-          )}
-
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl font-bold mb-2">
-                {isLoading ? (
-                  <span className="flex items-center gap-2">
-                    <Loader2 className="w-5 h-5 animate-spin" />
-                    Loading Gigs...
-                  </span>
-                ) : (
-                  `${filteredGigs.length} Gigs Available`
-                )}
+                {filteredGigs.length} Gigs Available
               </h2>
               <p className="text-sm text-muted-foreground">
-                {selectedCategory !== "all" && `Filtered by ${selectedCategory} • `}
+                {selectedCategory !== "all" &&
+                  `Filtered by ${selectedCategory} • `}
                 Showing latest opportunities
               </p>
             </div>
 
             <Badge variant="outline" className="border-primary/50">
-              {isUsingBlockchain ? 'On-Chain Gigs' : 'Demo Mode'}
+              New gigs added daily
             </Badge>
           </div>
 
-          {isLoading ? (
-            <div className="flex items-center justify-center py-20">
-              <Loader2 className="w-8 h-8 animate-spin text-primary" />
-            </div>
-          ) : filteredGigs.length > 0 ? (
+          {filteredGigs.length > 0 ? (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredGigs.map((gig) => (
                 <GigCard key={gig.id} gig={gig} />
@@ -309,10 +279,11 @@ export default function BrowseGigsPage() {
                 </div>
                 <h3 className="text-xl font-bold">No gigs found</h3>
                 <p className="text-muted-foreground">
-                  Try adjusting your filters or search query to find more opportunities
+                  Try adjusting your filters or search query to find more
+                  opportunities
                 </p>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="border-primary/50"
                   onClick={() => {
                     setSearchQuery("");

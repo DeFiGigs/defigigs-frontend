@@ -18,7 +18,13 @@ import {
   EyeOff,
   Save,
 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -91,7 +97,9 @@ export default function SettingsPage() {
                     <User className="w-5 h-5 text-primary" />
                     Profile Information
                   </CardTitle>
-                  <CardDescription>Update your personal information and preferences</CardDescription>
+                  <CardDescription>
+                    Update your personal information and preferences
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="grid grid-cols-2 gap-4">
@@ -107,7 +115,10 @@ export default function SettingsPage() {
 
                   <div className="space-y-2">
                     <Label>Email Address</Label>
-                    <Input type="email" defaultValue="alex.martinez@example.com" />
+                    <Input
+                      type="email"
+                      defaultValue="alex.martinez@example.com"
+                    />
                   </div>
 
                   <div className="space-y-2">
@@ -143,8 +154,12 @@ export default function SettingsPage() {
                       <SelectContent>
                         <SelectItem value="pst">Pacific Time (PST)</SelectItem>
                         <SelectItem value="est">Eastern Time (EST)</SelectItem>
-                        <SelectItem value="gmt">Greenwich Mean Time (GMT)</SelectItem>
-                        <SelectItem value="cet">Central European Time (CET)</SelectItem>
+                        <SelectItem value="gmt">
+                          Greenwich Mean Time (GMT)
+                        </SelectItem>
+                        <SelectItem value="cet">
+                          Central European Time (CET)
+                        </SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -166,7 +181,10 @@ export default function SettingsPage() {
                     </Select>
                   </div>
 
-                  <Button className="crypto-gradient text-white" onClick={handleSaveProfile}>
+                  <Button
+                    className="crypto-gradient text-white"
+                    onClick={handleSaveProfile}
+                  >
                     <Save className="mr-2 h-4 w-4" />
                     Save Changes
                   </Button>
@@ -182,16 +200,22 @@ export default function SettingsPage() {
                     <Bell className="w-5 h-5 text-primary" />
                     Notification Preferences
                   </CardTitle>
-                  <CardDescription>Choose how you want to receive updates</CardDescription>
+                  <CardDescription>
+                    Choose how you want to receive updates
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Email Notifications */}
                   <div>
-                    <h3 className="text-sm font-semibold mb-4">Email Notifications</h3>
+                    <h3 className="text-sm font-semibold mb-4">
+                      Email Notifications
+                    </h3>
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="font-medium">All Email Notifications</div>
+                          <div className="font-medium">
+                            All Email Notifications
+                          </div>
                           <div className="text-sm text-muted-foreground">
                             Receive email updates about your gigs and account
                           </div>
@@ -206,7 +230,8 @@ export default function SettingsPage() {
                         <div>
                           <div className="font-medium">Gig Updates</div>
                           <div className="text-sm text-muted-foreground">
-                            Notifications about gig applications and status changes
+                            Notifications about gig applications and status
+                            changes
                           </div>
                         </div>
                         <Switch defaultChecked disabled={!emailNotifications} />
@@ -214,7 +239,9 @@ export default function SettingsPage() {
 
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="font-medium">Payment Notifications</div>
+                          <div className="font-medium">
+                            Payment Notifications
+                          </div>
                           <div className="text-sm text-muted-foreground">
                             Alerts for escrow releases and advance approvals
                           </div>
@@ -252,11 +279,15 @@ export default function SettingsPage() {
 
                   {/* Push Notifications */}
                   <div>
-                    <h3 className="text-sm font-semibold mb-4">Push Notifications</h3>
+                    <h3 className="text-sm font-semibold mb-4">
+                      Push Notifications
+                    </h3>
                     <div className="space-y-4">
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="font-medium">Browser Notifications</div>
+                          <div className="font-medium">
+                            Browser Notifications
+                          </div>
                           <div className="text-sm text-muted-foreground">
                             Receive notifications in your browser
                           </div>
@@ -279,7 +310,10 @@ export default function SettingsPage() {
                     </div>
                   </div>
 
-                  <Button className="crypto-gradient text-white" onClick={handleSaveNotifications}>
+                  <Button
+                    className="crypto-gradient text-white"
+                    onClick={handleSaveNotifications}
+                  >
                     <Save className="mr-2 h-4 w-4" />
                     Save Preferences
                   </Button>
@@ -295,24 +329,37 @@ export default function SettingsPage() {
                     <Shield className="w-5 h-5 text-primary" />
                     Security Settings
                   </CardTitle>
-                  <CardDescription>Protect your account with enhanced security</CardDescription>
+                  <CardDescription>
+                    Protect your account with enhanced security
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Password Change */}
                   <div>
-                    <h3 className="text-sm font-semibold mb-4">Change Password</h3>
+                    <h3 className="text-sm font-semibold mb-4">
+                      Change Password
+                    </h3>
                     <div className="space-y-3">
                       <div className="space-y-2">
                         <Label>Current Password</Label>
-                        <Input type="password" placeholder="Enter current password" />
+                        <Input
+                          type="password"
+                          placeholder="Enter current password"
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label>New Password</Label>
-                        <Input type="password" placeholder="Enter new password" />
+                        <Input
+                          type="password"
+                          placeholder="Enter new password"
+                        />
                       </div>
                       <div className="space-y-2">
                         <Label>Confirm New Password</Label>
-                        <Input type="password" placeholder="Confirm new password" />
+                        <Input
+                          type="password"
+                          placeholder="Confirm new password"
+                        />
                       </div>
                       <Button variant="outline">Update Password</Button>
                     </div>
@@ -322,7 +369,9 @@ export default function SettingsPage() {
 
                   {/* Two-Factor Authentication */}
                   <div>
-                    <h3 className="text-sm font-semibold mb-4">Two-Factor Authentication</h3>
+                    <h3 className="text-sm font-semibold mb-4">
+                      Two-Factor Authentication
+                    </h3>
                     <div className="flex items-center justify-between p-4 rounded-lg bg-card/50 border border-border">
                       <div>
                         <div className="font-medium mb-1">Enable 2FA</div>
@@ -338,7 +387,8 @@ export default function SettingsPage() {
                     {twoFactorEnabled && (
                       <div className="mt-3 p-3 rounded-lg bg-primary/10 border border-primary/20">
                         <div className="text-sm text-muted-foreground">
-                          Scan the QR code with your authenticator app to complete setup.
+                          Scan the QR code with your authenticator app to
+                          complete setup.
                         </div>
                       </div>
                     )}
@@ -363,7 +413,11 @@ export default function SettingsPage() {
                             size="icon"
                             onClick={() => setShowApiKey(!showApiKey)}
                           >
-                            {showApiKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                            {showApiKey ? (
+                              <EyeOff className="h-4 w-4" />
+                            ) : (
+                              <Eye className="h-4 w-4" />
+                            )}
                           </Button>
                         </div>
                       </div>
@@ -375,7 +429,9 @@ export default function SettingsPage() {
 
                   {/* Connected Sessions */}
                   <div>
-                    <h3 className="text-sm font-semibold mb-4">Active Sessions</h3>
+                    <h3 className="text-sm font-semibold mb-4">
+                      Active Sessions
+                    </h3>
                     <div className="space-y-2">
                       <div className="p-3 rounded-lg bg-card/50 border border-border flex items-center justify-between">
                         <div>
@@ -400,7 +456,10 @@ export default function SettingsPage() {
                     </div>
                   </div>
 
-                  <Button className="crypto-gradient text-white" onClick={handleSaveSecurity}>
+                  <Button
+                    className="crypto-gradient text-white"
+                    onClick={handleSaveSecurity}
+                  >
                     <Save className="mr-2 h-4 w-4" />
                     Save Security Settings
                   </Button>
@@ -416,12 +475,16 @@ export default function SettingsPage() {
                     <Wallet className="w-5 h-5 text-primary" />
                     Wallet Settings
                   </CardTitle>
-                  <CardDescription>Manage your connected wallets and payment methods</CardDescription>
+                  <CardDescription>
+                    Manage your connected wallets and payment methods
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   {/* Connected Wallets */}
                   <div>
-                    <h3 className="text-sm font-semibold mb-4">Connected Wallets</h3>
+                    <h3 className="text-sm font-semibold mb-4">
+                      Connected Wallets
+                    </h3>
                     <div className="space-y-3">
                       <div className="p-4 rounded-lg bg-card/50 border border-primary/30">
                         <div className="flex items-center justify-between">
@@ -430,7 +493,9 @@ export default function SettingsPage() {
                             <div className="text-sm text-muted-foreground font-mono">
                               0x1234...5678
                             </div>
-                            <Badge className="bg-accent text-white mt-2">Primary</Badge>
+                            <Badge className="bg-accent text-white mt-2">
+                              Primary
+                            </Badge>
                           </div>
                           <Button variant="outline" size="sm">
                             Disconnect
@@ -449,7 +514,9 @@ export default function SettingsPage() {
 
                   {/* Network Settings */}
                   <div>
-                    <h3 className="text-sm font-semibold mb-4">Network Preferences</h3>
+                    <h3 className="text-sm font-semibold mb-4">
+                      Network Preferences
+                    </h3>
                     <div className="space-y-3">
                       <div className="space-y-2">
                         <Label>Default Network</Label>
@@ -458,9 +525,13 @@ export default function SettingsPage() {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="base-sepolia">Base Sepolia (Testnet)</SelectItem>
+                            <SelectItem value="base-sepolia">
+                              Base Sepolia (Testnet)
+                            </SelectItem>
                             <SelectItem value="base">Base Mainnet</SelectItem>
-                            <SelectItem value="ethereum">Ethereum Mainnet</SelectItem>
+                            <SelectItem value="ethereum">
+                              Ethereum Mainnet
+                            </SelectItem>
                             <SelectItem value="polygon">Polygon</SelectItem>
                           </SelectContent>
                         </Select>
@@ -481,7 +552,9 @@ export default function SettingsPage() {
 
                   {/* Gas Settings */}
                   <div>
-                    <h3 className="text-sm font-semibold mb-4">Transaction Settings</h3>
+                    <h3 className="text-sm font-semibold mb-4">
+                      Transaction Settings
+                    </h3>
                     <div className="space-y-3">
                       <div className="space-y-2">
                         <Label>Default Gas Priority</Label>
@@ -490,16 +563,24 @@ export default function SettingsPage() {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="low">Low (Slower, cheaper)</SelectItem>
-                            <SelectItem value="medium">Medium (Recommended)</SelectItem>
-                            <SelectItem value="high">High (Faster, more expensive)</SelectItem>
+                            <SelectItem value="low">
+                              Low (Slower, cheaper)
+                            </SelectItem>
+                            <SelectItem value="medium">
+                              Medium (Recommended)
+                            </SelectItem>
+                            <SelectItem value="high">
+                              High (Faster, more expensive)
+                            </SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
 
                       <div className="flex items-center justify-between">
                         <div>
-                          <div className="font-medium">Auto-approve small transactions</div>
+                          <div className="font-medium">
+                            Auto-approve small transactions
+                          </div>
                           <div className="text-sm text-muted-foreground">
                             Skip confirmation for transactions under $10
                           </div>
@@ -525,7 +606,9 @@ export default function SettingsPage() {
                 <Lock className="w-5 h-5" />
                 Danger Zone
               </CardTitle>
-              <CardDescription>Irreversible actions that affect your account</CardDescription>
+              <CardDescription>
+                Irreversible actions that affect your account
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex items-center justify-between p-4 rounded-lg bg-destructive/10 border border-destructive/20">

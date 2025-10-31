@@ -1,0 +1,48 @@
+export const gigInvestmentsSeed = [
+  {
+    id: "invest-1",
+    gigId: "gig-2",
+    financingRequestId: "fin-2",
+    investorId: "inv-1",
+    investorAddress: "0x7890123456789012345678901234567890123456",
+    amount: "5000.00",
+    currency: "USDC",
+    expectedReturn: "5225.00", // 4.5% interest
+    status: "active",
+    txHash: "0x111aaa222bbb333ccc444ddd555eee666fff777888999000aaabbbcccdddeeef",
+    investedAt: new Date("2024-09-18"),
+    dueDate: new Date("2024-10-16"),
+    createdAt: new Date("2024-09-18"),
+  },
+  {
+    id: "invest-2",
+    gigId: "gig-2",
+    financingRequestId: "fin-2",
+    investorId: "inv-2",
+    investorAddress: "0x8901234567890123456789012345678901234567",
+    amount: "3000.00",
+    currency: "USDC",
+    expectedReturn: "3135.00", // 4.5% interest
+    status: "active",
+    txHash: "0x222bbb333ccc444ddd555eee666fff777888999000aaabbbcccdddeeefff111",
+    investedAt: new Date("2024-09-18"),
+    dueDate: new Date("2024-10-16"),
+    createdAt: new Date("2024-09-18"),
+  },
+  {
+    id: "invest-3",
+    gigId: "gig-4",
+    investorId: "inv-3",
+    investorAddress: "0x9012345678901234567890123456789012345678",
+    amount: "2000.00",
+    currency: "USDC",
+    expectedReturn: "2080.00", // 4% interest
+    status: "completed",
+    actualReturn: "2080.00",
+    txHash: "0x333ccc444ddd555eee666fff777888999000aaabbbcccdddeeefff111222aaa",
+    investedAt: new Date("2024-08-01"),
+    dueDate: new Date("2024-09-15"),
+    returnedAt: new Date("2024-09-15"),
+    createdAt: new Date("2024-08-01"),
+  },
+];

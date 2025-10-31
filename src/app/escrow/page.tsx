@@ -13,7 +13,13 @@ import {
   Eye,
   RefreshCw,
 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -132,7 +138,9 @@ export default function EscrowPage() {
       case "locked":
         return <Badge className="bg-yellow-500 text-white">Locked</Badge>;
       case "pending_release":
-        return <Badge className="bg-purple-500 text-white">Pending Release</Badge>;
+        return (
+          <Badge className="bg-purple-500 text-white">Pending Release</Badge>
+        );
       case "released":
         return <Badge className="bg-accent text-white">Released</Badge>;
       case "disputed":
@@ -166,7 +174,9 @@ export default function EscrowPage() {
               <div className="flex items-center justify-between mb-2">
                 <Lock className="h-5 w-5 text-yellow-500" />
               </div>
-              <p className="text-2xl font-bold text-yellow-500">${stats.totalLocked.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-yellow-500">
+                ${stats.totalLocked.toLocaleString()}
+              </p>
               <p className="text-sm text-muted-foreground">Total Locked</p>
             </Card>
 
@@ -182,7 +192,9 @@ export default function EscrowPage() {
               <div className="flex items-center justify-between mb-2">
                 <Clock className="h-5 w-5 text-purple-500" />
               </div>
-              <p className="text-2xl font-bold text-purple-500">${stats.pendingRelease.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-purple-500">
+                ${stats.pendingRelease.toLocaleString()}
+              </p>
               <p className="text-sm text-muted-foreground">Pending Release</p>
             </Card>
 
@@ -190,7 +202,9 @@ export default function EscrowPage() {
               <div className="flex items-center justify-between mb-2">
                 <CheckCircle className="h-5 w-5 text-accent" />
               </div>
-              <p className="text-2xl font-bold text-accent">${stats.totalReleased.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-accent">
+                ${stats.totalReleased.toLocaleString()}
+              </p>
               <p className="text-sm text-muted-foreground">Total Released</p>
             </Card>
           </div>
@@ -235,7 +249,9 @@ export default function EscrowPage() {
                         <step.icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="font-semibold mb-1">{step.title}</div>
-                      <div className="text-xs text-muted-foreground">{step.description}</div>
+                      <div className="text-xs text-muted-foreground">
+                        {step.description}
+                      </div>
                     </div>
                     {index < 3 && (
                       <ArrowRight className="hidden md:block absolute top-6 -right-8 w-6 h-6 text-primary" />
@@ -262,7 +278,9 @@ export default function EscrowPage() {
                     <Lock className="w-5 h-5 text-yellow-500" />
                     Active Escrow Contracts
                   </CardTitle>
-                  <CardDescription>Payments currently locked in smart contracts</CardDescription>
+                  <CardDescription>
+                    Payments currently locked in smart contracts
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -277,32 +295,49 @@ export default function EscrowPage() {
                             <div className="flex items-start justify-between mb-3">
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                  <h3 className="font-semibold">{contract.gigTitle}</h3>
+                                  <h3 className="font-semibold">
+                                    {contract.gigTitle}
+                                  </h3>
                                   {getStatusBadge(contract.status)}
                                 </div>
                                 <div className="text-sm text-muted-foreground">
-                                  Contract ID: {contract.id} • Locked: {contract.lockDate}
+                                  Contract ID: {contract.id} • Locked:{" "}
+                                  {contract.lockDate}
                                 </div>
                               </div>
                             </div>
 
                             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Escrow Amount</div>
-                                <div className="font-semibold text-yellow-500">${contract.amount}</div>
-                              </div>
-                              <div>
-                                <div className="text-xs text-muted-foreground mb-1">Client</div>
-                                <div className="font-semibold text-sm">{contract.client}</div>
-                              </div>
-                              <div>
-                                <div className="text-xs text-muted-foreground mb-1">Advance Taken</div>
-                                <div className="font-semibold">
-                                  {contract.advanceDeducted > 0 ? `$${contract.advanceDeducted}` : "None"}
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Escrow Amount
+                                </div>
+                                <div className="font-semibold text-yellow-500">
+                                  ${contract.amount}
                                 </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Net Payment</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Client
+                                </div>
+                                <div className="font-semibold text-sm">
+                                  {contract.client}
+                                </div>
+                              </div>
+                              <div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Advance Taken
+                                </div>
+                                <div className="font-semibold">
+                                  {contract.advanceDeducted > 0
+                                    ? `$${contract.advanceDeducted}`
+                                    : "None"}
+                                </div>
+                              </div>
+                              <div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Net Payment
+                                </div>
                                 <div className="font-semibold text-accent">
                                   ${contract.amount - contract.advanceDeducted}
                                 </div>
@@ -311,14 +346,23 @@ export default function EscrowPage() {
 
                             <div className="space-y-2 mb-3">
                               <div className="flex justify-between text-sm">
-                                <span className="text-muted-foreground">Work Progress</span>
-                                <span className="font-medium">{contract.progress}%</span>
+                                <span className="text-muted-foreground">
+                                  Work Progress
+                                </span>
+                                <span className="font-medium">
+                                  {contract.progress}%
+                                </span>
                               </div>
-                              <Progress value={contract.progress} className="h-2" />
+                              <Progress
+                                value={contract.progress}
+                                className="h-2"
+                              />
                             </div>
 
                             <div className="p-3 rounded-lg bg-muted/50 mb-3">
-                              <div className="text-xs font-medium mb-2">Contract Conditions:</div>
+                              <div className="text-xs font-medium mb-2">
+                                Contract Conditions:
+                              </div>
                               <ul className="text-xs text-muted-foreground space-y-1">
                                 {contract.conditions.map((condition, index) => (
                                   <li key={index}>• {condition}</li>
@@ -356,12 +400,16 @@ export default function EscrowPage() {
                     <Clock className="w-5 h-5 text-purple-500" />
                     Pending Release
                   </CardTitle>
-                  <CardDescription>Awaiting client verification and approval</CardDescription>
+                  <CardDescription>
+                    Awaiting client verification and approval
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {escrowContracts
-                      .filter((contract) => contract.status === "pending_release")
+                      .filter(
+                        (contract) => contract.status === "pending_release",
+                      )
                       .map((contract) => (
                         <Card
                           key={contract.id}
@@ -371,7 +419,9 @@ export default function EscrowPage() {
                             <div className="flex items-start justify-between mb-3">
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                  <h3 className="font-semibold">{contract.gigTitle}</h3>
+                                  <h3 className="font-semibold">
+                                    {contract.gigTitle}
+                                  </h3>
                                   {getStatusBadge(contract.status)}
                                 </div>
                                 <div className="text-sm text-muted-foreground">
@@ -382,17 +432,25 @@ export default function EscrowPage() {
 
                             <div className="grid grid-cols-3 gap-4 mb-3">
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Total Amount</div>
-                                <div className="font-semibold">${contract.amount}</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Total Amount
+                                </div>
+                                <div className="font-semibold">
+                                  ${contract.amount}
+                                </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Advance Deduction</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Advance Deduction
+                                </div>
                                 <div className="font-semibold text-yellow-500">
                                   -${contract.advanceDeducted}
                                 </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">You'll Receive</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  You'll Receive
+                                </div>
                                 <div className="font-semibold text-accent">
                                   ${contract.amount - contract.advanceDeducted}
                                 </div>
@@ -403,8 +461,9 @@ export default function EscrowPage() {
                               <div className="flex items-start gap-2">
                                 <AlertCircle className="w-4 h-4 text-purple-500 mt-0.5" />
                                 <div className="text-sm text-muted-foreground">
-                                  Automatic release in 48 hours if client doesn't respond. Your advance loan
-                                  will be deducted automatically.
+                                  Automatic release in 48 hours if client
+                                  doesn't respond. Your advance loan will be
+                                  deducted automatically.
                                 </div>
                               </div>
                             </div>
@@ -413,7 +472,9 @@ export default function EscrowPage() {
                               <Button
                                 size="sm"
                                 className="success-gradient text-white"
-                                onClick={() => handleRequestRelease(contract.id)}
+                                onClick={() =>
+                                  handleRequestRelease(contract.id)
+                                }
                               >
                                 <RefreshCw className="mr-2 h-3 w-3" />
                                 Request Immediate Release
@@ -427,10 +488,14 @@ export default function EscrowPage() {
                         </Card>
                       ))}
 
-                    {escrowContracts.filter((c) => c.status === "pending_release").length === 0 && (
+                    {escrowContracts.filter(
+                      (c) => c.status === "pending_release",
+                    ).length === 0 && (
                       <div className="text-center py-12">
                         <Clock className="w-12 h-12 text-muted-foreground mx-auto mb-3" />
-                        <p className="text-muted-foreground">No pending releases at the moment</p>
+                        <p className="text-muted-foreground">
+                          No pending releases at the moment
+                        </p>
                       </div>
                     )}
                   </div>
@@ -446,7 +511,9 @@ export default function EscrowPage() {
                     <CheckCircle className="w-5 h-5 text-accent" />
                     Escrow History
                   </CardTitle>
-                  <CardDescription>Completed escrow transactions</CardDescription>
+                  <CardDescription>
+                    Completed escrow transactions
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -461,7 +528,9 @@ export default function EscrowPage() {
                             <div className="flex items-start justify-between mb-3">
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                  <h3 className="font-semibold">{contract.gigTitle}</h3>
+                                  <h3 className="font-semibold">
+                                    {contract.gigTitle}
+                                  </h3>
                                   {getStatusBadge(contract.status)}
                                 </div>
                                 <div className="text-sm text-muted-foreground">
@@ -472,20 +541,30 @@ export default function EscrowPage() {
 
                             <div className="grid grid-cols-3 gap-4 mb-3">
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Amount Released</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Amount Released
+                                </div>
                                 <div className="font-semibold text-accent">
                                   ${contract.amount - contract.advanceDeducted}
                                 </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Advance Repaid</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Advance Repaid
+                                </div>
                                 <div className="font-semibold">
-                                  {contract.advanceDeducted > 0 ? `$${contract.advanceDeducted}` : "N/A"}
+                                  {contract.advanceDeducted > 0
+                                    ? `$${contract.advanceDeducted}`
+                                    : "N/A"}
                                 </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Client</div>
-                                <div className="font-semibold text-sm">{contract.client}</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Client
+                                </div>
+                                <div className="font-semibold text-sm">
+                                  {contract.client}
+                                </div>
                               </div>
                             </div>
 
@@ -515,11 +594,18 @@ export default function EscrowPage() {
                 <Shield className="h-6 w-6 text-primary" />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold mb-2">Escrow Protection Benefits</h3>
+                <h3 className="font-semibold mb-2">
+                  Escrow Protection Benefits
+                </h3>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>✓ Payments locked in audited smart contracts on Base blockchain</li>
+                  <li>
+                    ✓ Payments locked in audited smart contracts on Base
+                    blockchain
+                  </li>
                   <li>✓ Automatic advance loan deduction upon release</li>
-                  <li>✓ Dispute resolution system with impartial arbitration</li>
+                  <li>
+                    ✓ Dispute resolution system with impartial arbitration
+                  </li>
                   <li>✓ Auto-release after 48h if client doesn't respond</li>
                   <li>✓ Full transaction history and receipts on-chain</li>
                 </ul>

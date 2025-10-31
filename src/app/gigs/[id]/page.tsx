@@ -128,7 +128,13 @@ We have developed a series of smart contracts for an NFT marketplace that handle
     duration: "1 week",
     category: "Security",
     subcategory: "Smart Contract Audit",
-    skills: ["Solidity", "Security", "Ethereum", "Smart Contracts", "OpenZeppelin"],
+    skills: [
+      "Solidity",
+      "Security",
+      "Ethereum",
+      "Smart Contracts",
+      "OpenZeppelin",
+    ],
     experienceLevel: "Expert",
     projectType: "One-time project",
     client: {
@@ -176,7 +182,13 @@ We have developed a series of smart contracts for an NFT marketplace that handle
     duration: "2 weeks",
     category: "Content",
     subcategory: "Blog Writing",
-    skills: ["Content Writing", "SEO", "Blockchain", "Cryptocurrency", "Research"],
+    skills: [
+      "Content Writing",
+      "SEO",
+      "Blockchain",
+      "Cryptocurrency",
+      "Research",
+    ],
     experienceLevel: "Intermediate",
     projectType: "Ongoing",
     client: {
@@ -283,7 +295,9 @@ export default function GigDetailPage() {
 
   const handleApply = () => {
     // In real app, submit application
-    alert("Application submitted successfully! You'll be notified once the client reviews your proposal.");
+    alert(
+      "Application submitted successfully! You'll be notified once the client reviews your proposal.",
+    );
     // Navigate to my gigs page
     router.push("/my-gigs");
   };
@@ -335,7 +349,9 @@ export default function GigDetailPage() {
                       onClick={() => setIsSaved(!isSaved)}
                       className={isSaved ? "text-red-500" : ""}
                     >
-                      <Heart className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`} />
+                      <Heart
+                        className={`h-5 w-5 ${isSaved ? "fill-current" : ""}`}
+                      />
                     </Button>
                     <Button variant="ghost" size="icon">
                       <Share2 className="h-5 w-5" />
@@ -344,7 +360,10 @@ export default function GigDetailPage() {
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  <Badge variant="secondary" className="crypto-gradient text-white">
+                  <Badge
+                    variant="secondary"
+                    className="crypto-gradient text-white"
+                  >
                     {gig.category}
                   </Badge>
                   <Badge variant="outline">{gig.experienceLevel}</Badge>
@@ -366,10 +385,16 @@ export default function GigDetailPage() {
 
                 {/* Skills Required */}
                 <div>
-                  <h2 className="text-xl font-semibold mb-4">Skills Required</h2>
+                  <h2 className="text-xl font-semibold mb-4">
+                    Skills Required
+                  </h2>
                   <div className="flex flex-wrap gap-2">
                     {gig.skills.map((skill: string, index: number) => (
-                      <Badge key={index} variant="secondary" className="bg-primary/20">
+                      <Badge
+                        key={index}
+                        variant="secondary"
+                        className="bg-primary/20"
+                      >
                         {skill}
                       </Badge>
                     ))}
@@ -388,7 +413,9 @@ export default function GigDetailPage() {
                         <span className="font-semibold">Budget</span>
                       </div>
                       <p className="text-2xl font-bold">{gig.budget}</p>
-                      <p className="text-sm text-muted-foreground">{gig.budgetType}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {gig.budgetType}
+                      </p>
                     </div>
                     <div className="p-4 bg-secondary/20 rounded-lg">
                       <div className="flex items-center gap-2 mb-2">
@@ -396,7 +423,9 @@ export default function GigDetailPage() {
                         <span className="font-semibold">Duration</span>
                       </div>
                       <p className="text-2xl font-bold">{gig.duration}</p>
-                      <p className="text-sm text-muted-foreground">{gig.estimatedTime}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {gig.estimatedTime}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -404,7 +433,9 @@ export default function GigDetailPage() {
 
               {/* Application Form */}
               <Card className="p-6 glass-effect border-border/40">
-                <h2 className="text-xl font-semibold mb-4">Submit Your Proposal</h2>
+                <h2 className="text-xl font-semibold mb-4">
+                  Submit Your Proposal
+                </h2>
                 <div className="space-y-4">
                   <div>
                     <Label htmlFor="cover-letter">Cover Letter</Label>
@@ -452,8 +483,8 @@ export default function GigDetailPage() {
                       Apply with Financing
                     </h4>
                     <p className="text-sm text-muted-foreground mb-3">
-                      Need upfront capital? Get up to 80% advance financing with flexible
-                      collateral options.
+                      Need upfront capital? Get up to 80% advance financing with
+                      flexible collateral options.
                     </p>
                     <Button variant="outline" size="sm" className="w-full">
                       Request Advance Financing
@@ -476,7 +507,9 @@ export default function GigDetailPage() {
                 <h2 className="text-xl font-semibold mb-4">Similar Gigs</h2>
                 <div className="grid grid-cols-1 gap-4">
                   {Object.values(gigData)
-                    .filter((g) => g.id !== gig.id && g.category === gig.category)
+                    .filter(
+                      (g) => g.id !== gig.id && g.category === gig.category,
+                    )
                     .slice(0, 2)
                     .map((similarGig) => (
                       <GigCard
@@ -484,7 +517,8 @@ export default function GigDetailPage() {
                         gig={{
                           id: parseInt(similarGig.id),
                           title: similarGig.title,
-                          description: similarGig.description.substring(0, 150) + "...",
+                          description:
+                            similarGig.description.substring(0, 150) + "...",
                           budget: similarGig.budget,
                           category: similarGig.category,
                           skills: similarGig.skills,
@@ -505,11 +539,15 @@ export default function GigDetailPage() {
                 <Card className="p-6 glass-effect border-border/40">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="font-semibold text-lg">{gig.client.name}</h3>
+                      <h3 className="font-semibold text-lg">
+                        {gig.client.name}
+                      </h3>
                       <div className="flex items-center gap-2 mt-1">
                         <div className="flex items-center gap-1">
                           <Star className="h-4 w-4 fill-yellow-500 text-yellow-500" />
-                          <span className="font-semibold">{gig.client.rating}</span>
+                          <span className="font-semibold">
+                            {gig.client.rating}
+                          </span>
                         </div>
                         <span className="text-sm text-muted-foreground">
                           ({gig.client.reviews} reviews)
@@ -528,24 +566,36 @@ export default function GigDetailPage() {
 
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center justify-between">
-                      <span className="text-muted-foreground">Member since</span>
-                      <span className="font-semibold">{gig.client.memberSince}</span>
+                      <span className="text-muted-foreground">
+                        Member since
+                      </span>
+                      <span className="font-semibold">
+                        {gig.client.memberSince}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">Total spent</span>
-                      <span className="font-semibold">{gig.client.totalSpent}</span>
+                      <span className="font-semibold">
+                        {gig.client.totalSpent}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">Jobs posted</span>
-                      <span className="font-semibold">{gig.client.jobsPosted}</span>
+                      <span className="font-semibold">
+                        {gig.client.jobsPosted}
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">Hire rate</span>
-                      <span className="font-semibold">{gig.client.hireRate}%</span>
+                      <span className="font-semibold">
+                        {gig.client.hireRate}%
+                      </span>
                     </div>
                     <div className="flex items-center justify-between">
                       <span className="text-muted-foreground">Location</span>
-                      <span className="font-semibold">{gig.client.location}</span>
+                      <span className="font-semibold">
+                        {gig.client.location}
+                      </span>
                     </div>
                   </div>
 
@@ -586,7 +636,9 @@ export default function GigDetailPage() {
                         <Shield className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="font-semibold text-sm">Escrow Protected</p>
+                        <p className="font-semibold text-sm">
+                          Escrow Protected
+                        </p>
                         <p className="text-xs text-muted-foreground">
                           Payment guaranteed
                         </p>
@@ -597,7 +649,9 @@ export default function GigDetailPage() {
                         <Briefcase className="h-5 w-5 text-primary" />
                       </div>
                       <div>
-                        <p className="font-semibold text-sm">Financing Available</p>
+                        <p className="font-semibold text-sm">
+                          Financing Available
+                        </p>
                         <p className="text-xs text-muted-foreground">
                           Get advance payment
                         </p>

@@ -13,7 +13,13 @@ import {
   FileText,
   CreditCard,
 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -127,7 +133,9 @@ export default function RepaymentPage() {
   };
 
   const handleSetupAutoRepay = (loanId: string) => {
-    toast.success("Auto-repayment enabled! Payment will be deducted from escrow.");
+    toast.success(
+      "Auto-repayment enabled! Payment will be deducted from escrow.",
+    );
   };
 
   const getStatusBadge = (status: string) => {
@@ -169,7 +177,9 @@ export default function RepaymentPage() {
               <div className="flex items-center justify-between mb-2">
                 <DollarSign className="h-5 w-5 text-yellow-500" />
               </div>
-              <p className="text-2xl font-bold text-yellow-500">${stats.totalDue.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-yellow-500">
+                ${stats.totalDue.toLocaleString()}
+              </p>
               <p className="text-sm text-muted-foreground">Total Due</p>
             </Card>
 
@@ -177,7 +187,9 @@ export default function RepaymentPage() {
               <div className="flex items-center justify-between mb-2">
                 <AlertCircle className="h-5 w-5 text-destructive" />
               </div>
-              <p className="text-2xl font-bold text-destructive">${stats.overdue.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-destructive">
+                ${stats.overdue.toLocaleString()}
+              </p>
               <p className="text-sm text-muted-foreground">Overdue</p>
             </Card>
 
@@ -193,7 +205,9 @@ export default function RepaymentPage() {
               <div className="flex items-center justify-between mb-2">
                 <CheckCircle className="h-5 w-5 text-accent" />
               </div>
-              <p className="text-2xl font-bold text-accent">${stats.totalRepaid.toLocaleString()}</p>
+              <p className="text-2xl font-bold text-accent">
+                ${stats.totalRepaid.toLocaleString()}
+              </p>
               <p className="text-sm text-muted-foreground">Total Repaid</p>
             </Card>
           </div>
@@ -213,11 +227,16 @@ export default function RepaymentPage() {
                         <CheckCircle className="w-5 h-5 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <div className="font-semibold mb-1">Escrow Auto-Deduct</div>
+                        <div className="font-semibold mb-1">
+                          Escrow Auto-Deduct
+                        </div>
                         <p className="text-sm text-muted-foreground mb-3">
-                          Automatically deduct repayment from escrow when gig payment is released
+                          Automatically deduct repayment from escrow when gig
+                          payment is released
                         </p>
-                        <Badge className="bg-accent text-white">Recommended</Badge>
+                        <Badge className="bg-accent text-white">
+                          Recommended
+                        </Badge>
                       </div>
                     </div>
                   </CardContent>
@@ -232,7 +251,8 @@ export default function RepaymentPage() {
                       <div className="flex-1">
                         <div className="font-semibold mb-1">Manual Payment</div>
                         <p className="text-sm text-muted-foreground mb-3">
-                          Make payments manually from your wallet before due date
+                          Make payments manually from your wallet before due
+                          date
                         </p>
                         <Badge variant="outline">Available</Badge>
                       </div>
@@ -259,12 +279,17 @@ export default function RepaymentPage() {
                     <DollarSign className="w-5 h-5 text-primary" />
                     Active Loans
                   </CardTitle>
-                  <CardDescription>Your current repayment obligations</CardDescription>
+                  <CardDescription>
+                    Your current repayment obligations
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     {loans
-                      .filter((loan) => loan.status === "active" || loan.status === "overdue")
+                      .filter(
+                        (loan) =>
+                          loan.status === "active" || loan.status === "overdue",
+                      )
                       .map((loan) => (
                         <Card
                           key={loan.id}
@@ -274,7 +299,9 @@ export default function RepaymentPage() {
                             <div className="flex items-start justify-between mb-3">
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                  <h3 className="font-semibold">{loan.gigTitle}</h3>
+                                  <h3 className="font-semibold">
+                                    {loan.gigTitle}
+                                  </h3>
                                   {getStatusBadge(loan.status)}
                                 </div>
                                 <div className="text-sm text-muted-foreground">
@@ -285,32 +312,57 @@ export default function RepaymentPage() {
 
                             <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-3">
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Principal</div>
-                                <div className="font-semibold">${loan.principalAmount}</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Principal
+                                </div>
+                                <div className="font-semibold">
+                                  ${loan.principalAmount}
+                                </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Interest Rate</div>
-                                <div className="font-semibold">{loan.interestRate}%</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Interest Rate
+                                </div>
+                                <div className="font-semibold">
+                                  {loan.interestRate}%
+                                </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Total Owed</div>
-                                <div className="font-semibold text-yellow-500">${loan.totalOwed}</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Total Owed
+                                </div>
+                                <div className="font-semibold text-yellow-500">
+                                  ${loan.totalOwed}
+                                </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Paid</div>
-                                <div className="font-semibold text-accent">${loan.amountPaid}</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Paid
+                                </div>
+                                <div className="font-semibold text-accent">
+                                  ${loan.amountPaid}
+                                </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Remaining</div>
-                                <div className="font-semibold">${loan.totalOwed - loan.amountPaid}</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Remaining
+                                </div>
+                                <div className="font-semibold">
+                                  ${loan.totalOwed - loan.amountPaid}
+                                </div>
                               </div>
                             </div>
 
                             <div className="space-y-2 mb-3">
                               <div className="flex justify-between text-sm">
-                                <span className="text-muted-foreground">Repayment Progress</span>
+                                <span className="text-muted-foreground">
+                                  Repayment Progress
+                                </span>
                                 <span className="font-medium">
-                                  {Math.round((loan.amountPaid / loan.totalOwed) * 100)}%
+                                  {Math.round(
+                                    (loan.amountPaid / loan.totalOwed) * 100,
+                                  )}
+                                  %
                                 </span>
                               </div>
                               <Progress
@@ -346,7 +398,10 @@ export default function RepaymentPage() {
                               {loan.paymentMethod === "manual" && (
                                 <>
                                   <Dialog
-                                    open={showPaymentModal && selectedLoan?.id === loan.id}
+                                    open={
+                                      showPaymentModal &&
+                                      selectedLoan?.id === loan.id
+                                    }
                                     onOpenChange={(open) => {
                                       setShowPaymentModal(open);
                                       if (!open) setSelectedLoan(null);
@@ -364,7 +419,9 @@ export default function RepaymentPage() {
                                     </DialogTrigger>
                                     <DialogContent>
                                       <DialogHeader>
-                                        <DialogTitle>Make Loan Payment</DialogTitle>
+                                        <DialogTitle>
+                                          Make Loan Payment
+                                        </DialogTitle>
                                         <DialogDescription>
                                           Process repayment for {loan.gigTitle}
                                         </DialogDescription>
@@ -373,23 +430,37 @@ export default function RepaymentPage() {
                                         <div className="p-4 rounded-lg bg-card border border-border">
                                           <div className="space-y-2">
                                             <div className="flex justify-between">
-                                              <span className="text-muted-foreground">Loan ID</span>
-                                              <span className="font-semibold">{loan.id}</span>
+                                              <span className="text-muted-foreground">
+                                                Loan ID
+                                              </span>
+                                              <span className="font-semibold">
+                                                {loan.id}
+                                              </span>
                                             </div>
                                             <div className="flex justify-between">
-                                              <span className="text-muted-foreground">Total Owed</span>
-                                              <span className="font-semibold">${loan.totalOwed}</span>
+                                              <span className="text-muted-foreground">
+                                                Total Owed
+                                              </span>
+                                              <span className="font-semibold">
+                                                ${loan.totalOwed}
+                                              </span>
                                             </div>
                                             <div className="flex justify-between">
-                                              <span className="text-muted-foreground">Already Paid</span>
+                                              <span className="text-muted-foreground">
+                                                Already Paid
+                                              </span>
                                               <span className="font-semibold text-accent">
                                                 ${loan.amountPaid}
                                               </span>
                                             </div>
                                             <div className="flex justify-between">
-                                              <span className="text-muted-foreground">Remaining</span>
+                                              <span className="text-muted-foreground">
+                                                Remaining
+                                              </span>
                                               <span className="font-semibold text-yellow-500">
-                                                ${loan.totalOwed - loan.amountPaid}
+                                                $
+                                                {loan.totalOwed -
+                                                  loan.amountPaid}
                                               </span>
                                             </div>
                                           </div>
@@ -401,7 +472,9 @@ export default function RepaymentPage() {
                                             type="number"
                                             placeholder="Enter amount"
                                             value={paymentAmount}
-                                            onChange={(e) => setPaymentAmount(e.target.value)}
+                                            onChange={(e) =>
+                                              setPaymentAmount(e.target.value)
+                                            }
                                           />
                                           <div className="flex gap-2">
                                             <Button
@@ -409,7 +482,11 @@ export default function RepaymentPage() {
                                               size="sm"
                                               onClick={() =>
                                                 setPaymentAmount(
-                                                  ((loan.totalOwed - loan.amountPaid) / 2).toString()
+                                                  (
+                                                    (loan.totalOwed -
+                                                      loan.amountPaid) /
+                                                    2
+                                                  ).toString(),
                                                 )
                                               }
                                             >
@@ -420,7 +497,10 @@ export default function RepaymentPage() {
                                               size="sm"
                                               onClick={() =>
                                                 setPaymentAmount(
-                                                  (loan.totalOwed - loan.amountPaid).toString()
+                                                  (
+                                                    loan.totalOwed -
+                                                    loan.amountPaid
+                                                  ).toString(),
                                                 )
                                               }
                                             >
@@ -443,7 +523,9 @@ export default function RepaymentPage() {
                                     size="sm"
                                     variant="outline"
                                     className="border-primary/50"
-                                    onClick={() => handleSetupAutoRepay(loan.id)}
+                                    onClick={() =>
+                                      handleSetupAutoRepay(loan.id)
+                                    }
                                   >
                                     <RefreshCw className="mr-2 h-3 w-3" />
                                     Enable Auto-Repay
@@ -459,11 +541,14 @@ export default function RepaymentPage() {
                         </Card>
                       ))}
 
-                    {loans.filter((l) => l.status === "active" || l.status === "overdue").length ===
-                      0 && (
+                    {loans.filter(
+                      (l) => l.status === "active" || l.status === "overdue",
+                    ).length === 0 && (
                       <div className="text-center py-12">
                         <CheckCircle className="w-12 h-12 text-accent mx-auto mb-3" />
-                        <p className="text-muted-foreground">No active loans to repay</p>
+                        <p className="text-muted-foreground">
+                          No active loans to repay
+                        </p>
                       </div>
                     )}
                   </div>
@@ -485,7 +570,11 @@ export default function RepaymentPage() {
                   <div className="space-y-3">
                     {loans
                       .filter((loan) => loan.status === "active")
-                      .sort((a, b) => new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime())
+                      .sort(
+                        (a, b) =>
+                          new Date(a.dueDate).getTime() -
+                          new Date(b.dueDate).getTime(),
+                      )
                       .map((loan) => (
                         <Card
                           key={loan.id}
@@ -498,7 +587,9 @@ export default function RepaymentPage() {
                                   <Calendar className="w-6 h-6 text-white" />
                                 </div>
                                 <div>
-                                  <div className="font-semibold">{loan.gigTitle}</div>
+                                  <div className="font-semibold">
+                                    {loan.gigTitle}
+                                  </div>
                                   <div className="text-sm text-muted-foreground">
                                     Due: {loan.dueDate}
                                   </div>
@@ -509,7 +600,9 @@ export default function RepaymentPage() {
                                   ${loan.nextPayment}
                                 </div>
                                 <div className="text-xs text-muted-foreground">
-                                  {loan.paymentMethod === "auto" ? "Auto-deduct" : "Manual"}
+                                  {loan.paymentMethod === "auto"
+                                    ? "Auto-deduct"
+                                    : "Manual"}
                                 </div>
                               </div>
                             </div>
@@ -544,7 +637,9 @@ export default function RepaymentPage() {
                             <div className="flex items-start justify-between mb-3">
                               <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                  <h3 className="font-semibold">{loan.gigTitle}</h3>
+                                  <h3 className="font-semibold">
+                                    {loan.gigTitle}
+                                  </h3>
                                   {getStatusBadge(loan.status)}
                                 </div>
                                 <div className="text-sm text-muted-foreground">
@@ -555,18 +650,28 @@ export default function RepaymentPage() {
 
                             <div className="grid grid-cols-3 gap-4 mb-3">
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Principal</div>
-                                <div className="font-semibold">${loan.principalAmount}</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Principal
+                                </div>
+                                <div className="font-semibold">
+                                  ${loan.principalAmount}
+                                </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Interest Paid</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Interest Paid
+                                </div>
                                 <div className="font-semibold">
                                   ${loan.totalOwed - loan.principalAmount}
                                 </div>
                               </div>
                               <div>
-                                <div className="text-xs text-muted-foreground mb-1">Total Repaid</div>
-                                <div className="font-semibold text-accent">${loan.totalOwed}</div>
+                                <div className="text-xs text-muted-foreground mb-1">
+                                  Total Repaid
+                                </div>
+                                <div className="font-semibold text-accent">
+                                  ${loan.totalOwed}
+                                </div>
                               </div>
                             </div>
 
@@ -590,12 +695,21 @@ export default function RepaymentPage() {
                 <TrendingDown className="h-6 w-6 text-primary" />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold mb-2">Improve Your Repayment Score</h3>
+                <h3 className="font-semibold mb-2">
+                  Improve Your Repayment Score
+                </h3>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>✓ Enable auto-repayment from escrow for hassle-free payments</li>
-                  <li>✓ Pay on time to build better credit score and access lower rates</li>
+                  <li>
+                    ✓ Enable auto-repayment from escrow for hassle-free payments
+                  </li>
+                  <li>
+                    ✓ Pay on time to build better credit score and access lower
+                    rates
+                  </li>
                   <li>✓ Early repayment can reduce total interest charges</li>
-                  <li>✓ Good repayment history unlocks higher advance limits</li>
+                  <li>
+                    ✓ Good repayment history unlocks higher advance limits
+                  </li>
                 </ul>
               </div>
             </div>

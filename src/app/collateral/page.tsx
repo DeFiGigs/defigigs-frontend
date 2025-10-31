@@ -14,7 +14,13 @@ import {
   Wallet,
   FileText,
 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -192,13 +198,18 @@ export default function CollateralPage() {
               <div>
                 <div className="flex items-center gap-3 mb-2">
                   <Shield className="h-8 w-8 text-primary" />
-                  <h1 className="text-4xl font-bold">Collateral & Endorsements</h1>
+                  <h1 className="text-4xl font-bold">
+                    Collateral & Endorsements
+                  </h1>
                 </div>
                 <p className="text-muted-foreground">
                   Manage your collateral options and peer endorsements
                 </p>
               </div>
-              <Dialog open={showRequestEndorsement} onOpenChange={setShowRequestEndorsement}>
+              <Dialog
+                open={showRequestEndorsement}
+                onOpenChange={setShowRequestEndorsement}
+              >
                 <DialogTrigger asChild>
                   <Button className="crypto-gradient text-white">
                     <Plus className="mr-2 h-4 w-4" />
@@ -215,13 +226,20 @@ export default function CollateralPage() {
                   <div className="space-y-4">
                     <div className="space-y-2">
                       <Label>Skill to Endorse</Label>
-                      <Select value={selectedSkill} onValueChange={setSelectedSkill}>
+                      <Select
+                        value={selectedSkill}
+                        onValueChange={setSelectedSkill}
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="Select skill" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="react">React Development</SelectItem>
-                          <SelectItem value="solidity">Smart Contracts</SelectItem>
+                          <SelectItem value="react">
+                            React Development
+                          </SelectItem>
+                          <SelectItem value="solidity">
+                            Smart Contracts
+                          </SelectItem>
                           <SelectItem value="design">UI/UX Design</SelectItem>
                           <SelectItem value="typescript">TypeScript</SelectItem>
                         </SelectContent>
@@ -230,22 +248,35 @@ export default function CollateralPage() {
 
                     <div className="space-y-2">
                       <Label>Select Peer</Label>
-                      <Select value={selectedPeer} onValueChange={setSelectedPeer}>
+                      <Select
+                        value={selectedPeer}
+                        onValueChange={setSelectedPeer}
+                      >
                         <SelectTrigger>
                           <SelectValue placeholder="Choose a peer" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="john">John Smith (⭐ 4.9)</SelectItem>
-                          <SelectItem value="alice">Alice Brown (⭐ 4.8)</SelectItem>
-                          <SelectItem value="robert">Robert Wilson (⭐ 4.7)</SelectItem>
+                          <SelectItem value="john">
+                            John Smith (⭐ 4.9)
+                          </SelectItem>
+                          <SelectItem value="alice">
+                            Alice Brown (⭐ 4.8)
+                          </SelectItem>
+                          <SelectItem value="robert">
+                            Robert Wilson (⭐ 4.7)
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
 
                     <div className="p-3 rounded-lg bg-primary/10 border border-primary/20">
-                      <div className="text-sm font-medium mb-1">How It Works</div>
+                      <div className="text-sm font-medium mb-1">
+                        How It Works
+                      </div>
                       <div className="text-xs text-muted-foreground space-y-1">
-                        <div>• Peer stakes their reputation to vouch for you</div>
+                        <div>
+                          • Peer stakes their reputation to vouch for you
+                        </div>
                         <div>• They earn rewards if your gig is successful</div>
                         <div>• They lose stake if gig fails or you default</div>
                       </div>
@@ -270,7 +301,9 @@ export default function CollateralPage() {
               <div className="flex items-center justify-between mb-2">
                 <Wallet className="h-5 w-5 text-primary" />
               </div>
-              <p className="text-2xl font-bold">${stats.totalStaked.toLocaleString()}</p>
+              <p className="text-2xl font-bold">
+                ${stats.totalStaked.toLocaleString()}
+              </p>
               <p className="text-sm text-muted-foreground">Total Staked</p>
             </Card>
 
@@ -278,7 +311,9 @@ export default function CollateralPage() {
               <div className="flex items-center justify-between mb-2">
                 <Star className="h-5 w-5 text-yellow-500" />
               </div>
-              <p className="text-2xl font-bold text-accent">{stats.reputationScore}</p>
+              <p className="text-2xl font-bold text-accent">
+                {stats.reputationScore}
+              </p>
               <p className="text-sm text-muted-foreground">Reputation Score</p>
             </Card>
 
@@ -287,15 +322,21 @@ export default function CollateralPage() {
                 <Users className="h-5 w-5 text-primary" />
               </div>
               <p className="text-2xl font-bold">{stats.endorsements}</p>
-              <p className="text-sm text-muted-foreground">Active Endorsements</p>
+              <p className="text-sm text-muted-foreground">
+                Active Endorsements
+              </p>
             </Card>
 
             <Card className="p-6 glass-effect border-border/40">
               <div className="flex items-center justify-between mb-2">
                 <TrendingUp className="h-5 w-5 text-accent" />
               </div>
-              <p className="text-2xl font-bold text-accent">${stats.availableForStake.toLocaleString()}</p>
-              <p className="text-sm text-muted-foreground">Available for Stake</p>
+              <p className="text-2xl font-bold text-accent">
+                ${stats.availableForStake.toLocaleString()}
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Available for Stake
+              </p>
             </Card>
           </div>
 
@@ -319,22 +360,32 @@ export default function CollateralPage() {
                   >
                     <CardContent className="p-5">
                       <div className="flex items-start gap-4 mb-4">
-                        <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${option.color} flex items-center justify-center`}>
+                        <div
+                          className={`w-12 h-12 rounded-lg bg-gradient-to-br ${option.color} flex items-center justify-center`}
+                        >
                           <option.icon className="w-6 h-6 text-white" />
                         </div>
                         <div className="flex-1">
                           <h3 className="font-semibold mb-1">{option.name}</h3>
-                          <p className="text-sm text-muted-foreground">{option.description}</p>
+                          <p className="text-sm text-muted-foreground">
+                            {option.description}
+                          </p>
                         </div>
                       </div>
 
                       <div className="grid grid-cols-2 gap-3 mb-3">
                         <div className="p-2 rounded bg-card border border-border">
-                          <div className="text-xs text-muted-foreground mb-1">Interest Rate</div>
-                          <div className="font-semibold text-accent">{option.interestRate}%</div>
+                          <div className="text-xs text-muted-foreground mb-1">
+                            Interest Rate
+                          </div>
+                          <div className="font-semibold text-accent">
+                            {option.interestRate}%
+                          </div>
                         </div>
                         <div className="p-2 rounded bg-card border border-border">
-                          <div className="text-xs text-muted-foreground mb-1">Type</div>
+                          <div className="text-xs text-muted-foreground mb-1">
+                            Type
+                          </div>
                           <Badge variant="outline" className="text-xs">
                             {option.type}
                           </Badge>
@@ -373,7 +424,9 @@ export default function CollateralPage() {
                     <Users className="w-5 h-5 text-primary" />
                     Peer Endorsements
                   </CardTitle>
-                  <CardDescription>Workers who have endorsed your skills</CardDescription>
+                  <CardDescription>
+                    Workers who have endorsed your skills
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -394,7 +447,9 @@ export default function CollateralPage() {
                                 </AvatarFallback>
                               </Avatar>
                               <div>
-                                <div className="font-semibold">{endorsement.endorserName}</div>
+                                <div className="font-semibold">
+                                  {endorsement.endorserName}
+                                </div>
                                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                                   <Star className="w-3 h-3 fill-yellow-500 text-yellow-500" />
                                   <span>{endorsement.endorserRating}</span>
@@ -406,20 +461,36 @@ export default function CollateralPage() {
 
                           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-3">
                             <div>
-                              <div className="text-xs text-muted-foreground mb-1">Skill</div>
-                              <Badge variant="outline">{endorsement.skill}</Badge>
+                              <div className="text-xs text-muted-foreground mb-1">
+                                Skill
+                              </div>
+                              <Badge variant="outline">
+                                {endorsement.skill}
+                              </Badge>
                             </div>
                             <div>
-                              <div className="text-xs text-muted-foreground mb-1">Staked Amount</div>
-                              <div className="font-semibold text-primary">${endorsement.stakedAmount}</div>
+                              <div className="text-xs text-muted-foreground mb-1">
+                                Staked Amount
+                              </div>
+                              <div className="font-semibold text-primary">
+                                ${endorsement.stakedAmount}
+                              </div>
                             </div>
                             <div>
-                              <div className="text-xs text-muted-foreground mb-1">For Gig</div>
-                              <div className="font-semibold text-sm truncate">{endorsement.gigTitle}</div>
+                              <div className="text-xs text-muted-foreground mb-1">
+                                For Gig
+                              </div>
+                              <div className="font-semibold text-sm truncate">
+                                {endorsement.gigTitle}
+                              </div>
                             </div>
                             <div>
-                              <div className="text-xs text-muted-foreground mb-1">Expires</div>
-                              <div className="font-semibold text-sm">{endorsement.expiryDate}</div>
+                              <div className="text-xs text-muted-foreground mb-1">
+                                Expires
+                              </div>
+                              <div className="font-semibold text-sm">
+                                {endorsement.expiryDate}
+                              </div>
                             </div>
                           </div>
 
@@ -427,7 +498,8 @@ export default function CollateralPage() {
                             <div className="p-2 rounded-lg bg-accent/10 border border-accent/20 flex items-center gap-2">
                               <CheckCircle className="w-4 h-4 text-accent" />
                               <span className="text-sm text-muted-foreground">
-                                Endorsement successful! Rewards distributed to peer.
+                                Endorsement successful! Rewards distributed to
+                                peer.
                               </span>
                             </div>
                           )}
@@ -465,16 +537,25 @@ export default function CollateralPage() {
                       <CardContent className="p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div>
-                            <div className="text-sm text-muted-foreground mb-1">Your Reputation Score</div>
-                            <div className="text-4xl font-bold">{stats.reputationScore}/100</div>
+                            <div className="text-sm text-muted-foreground mb-1">
+                              Your Reputation Score
+                            </div>
+                            <div className="text-4xl font-bold">
+                              {stats.reputationScore}/100
+                            </div>
                           </div>
                           <div className="w-16 h-16 rounded-full crypto-gradient flex items-center justify-center">
                             <Award className="w-8 h-8 text-white" />
                           </div>
                         </div>
-                        <Progress value={stats.reputationScore} className="h-3 mb-2" />
+                        <Progress
+                          value={stats.reputationScore}
+                          className="h-3 mb-2"
+                        />
                         <div className="text-sm text-muted-foreground">
-                          Excellent rating! You can access up to ${stats.availableForStake.toLocaleString()} in reputation-backed financing.
+                          Excellent rating! You can access up to $
+                          {stats.availableForStake.toLocaleString()} in
+                          reputation-backed financing.
                         </div>
                       </CardContent>
                     </Card>
@@ -487,7 +568,9 @@ export default function CollateralPage() {
                             <CheckCircle className="w-5 h-5 text-accent" />
                             <span className="text-2xl font-bold">47</span>
                           </div>
-                          <div className="text-sm text-muted-foreground">Completed Gigs</div>
+                          <div className="text-sm text-muted-foreground">
+                            Completed Gigs
+                          </div>
                         </CardContent>
                       </Card>
 
@@ -497,7 +580,9 @@ export default function CollateralPage() {
                             <Star className="w-5 h-5 text-yellow-500" />
                             <span className="text-2xl font-bold">4.8</span>
                           </div>
-                          <div className="text-sm text-muted-foreground">Average Rating</div>
+                          <div className="text-sm text-muted-foreground">
+                            Average Rating
+                          </div>
                         </CardContent>
                       </Card>
 
@@ -507,7 +592,9 @@ export default function CollateralPage() {
                             <TrendingUp className="w-5 h-5 text-primary" />
                             <span className="text-2xl font-bold">98%</span>
                           </div>
-                          <div className="text-sm text-muted-foreground">On-Time Delivery</div>
+                          <div className="text-sm text-muted-foreground">
+                            On-Time Delivery
+                          </div>
                         </CardContent>
                       </Card>
                     </div>
@@ -521,7 +608,9 @@ export default function CollateralPage() {
                               <Wallet className="w-5 h-5 text-primary" />
                             </div>
                             <div>
-                              <div className="font-semibold">Available Credit</div>
+                              <div className="font-semibold">
+                                Available Credit
+                              </div>
                               <div className="text-2xl font-bold text-primary">
                                 ${stats.availableForStake.toLocaleString()}
                               </div>
@@ -552,13 +641,17 @@ export default function CollateralPage() {
                 <h3 className="font-semibold mb-2">About Collateral Options</h3>
                 <div className="text-sm text-muted-foreground space-y-2">
                   <p>
-                    <strong>Escrow Guarantee:</strong> Zero interest when client deposits payment first. Safest option for both parties.
+                    <strong>Escrow Guarantee:</strong> Zero interest when client
+                    deposits payment first. Safest option for both parties.
                   </p>
                   <p>
-                    <strong>Peer Endorsement:</strong> Senior workers vouch for you. They earn rewards if you succeed, lose stake if you fail.
+                    <strong>Peer Endorsement:</strong> Senior workers vouch for
+                    you. They earn rewards if you succeed, lose stake if you
+                    fail.
                   </p>
                   <p>
-                    <strong>Reputation Stake:</strong> Use your on-chain reputation score. Higher score = better rates and limits.
+                    <strong>Reputation Stake:</strong> Use your on-chain
+                    reputation score. Higher score = better rates and limits.
                   </p>
                 </div>
               </div>

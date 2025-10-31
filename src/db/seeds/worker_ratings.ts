@@ -1,0 +1,26 @@
+export const workerRatingsSeed = [
+  {
+    id: "rating-1",
+    gigId: "gig-4",
+    workerId: "worker-2",
+    employerId: "emp-2",
+    rating: 5,
+    qualityScore: 5,
+    communicationScore: 5,
+    timelinessScore: 5,
+    review: "Excellent work! Documentation was comprehensive, well-structured, and delivered ahead of schedule. Highly recommended!",
+    createdAt: new Date("2024-09-16"),
+  },
+  {
+    id: "rating-2",
+    gigId: "gig-2",
+    workerId: "worker-1",
+    employerId: "emp-1",
+    rating: 4,
+    qualityScore: 5,
+    communicationScore: 4,
+    timelinessScore: 4,
+    review: "Great developer with strong technical skills. UI components are clean and responsive. Minor communication delays but overall very satisfied.",
+    createdAt: new Date("2024-10-05"),
+  },
+];

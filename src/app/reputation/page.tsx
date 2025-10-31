@@ -15,7 +15,13 @@ import {
   Zap,
   Target,
 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -72,7 +78,8 @@ export default function ReputationPage() {
       clientName: "CryptoVentures",
       gigTitle: "E-commerce Dashboard Development",
       rating: 5,
-      comment: "Outstanding work! Delivered ahead of schedule with excellent quality. Will hire again.",
+      comment:
+        "Outstanding work! Delivered ahead of schedule with excellent quality. Will hire again.",
       date: "Jan 2, 2025",
     },
     {
@@ -80,7 +87,8 @@ export default function ReputationPage() {
       clientName: "NFTMarket",
       gigTitle: "Mobile App UI/UX Design",
       rating: 5,
-      comment: "Very professional and responsive. The designs exceeded our expectations.",
+      comment:
+        "Very professional and responsive. The designs exceeded our expectations.",
       date: "Dec 28, 2024",
     },
     {
@@ -233,7 +241,9 @@ export default function ReputationPage() {
                 <div className="flex-shrink-0">
                   <div className="w-40 h-40 rounded-full crypto-gradient p-1">
                     <div className="w-full h-full rounded-full bg-background flex flex-col items-center justify-center">
-                      <div className="text-5xl font-bold">{stats.overallScore}</div>
+                      <div className="text-5xl font-bold">
+                        {stats.overallScore}
+                      </div>
                       <div className="text-sm text-muted-foreground">Score</div>
                     </div>
                   </div>
@@ -244,31 +254,45 @@ export default function ReputationPage() {
                     <div>
                       <div className="flex items-center gap-2 mb-2">
                         <Briefcase className="w-5 h-5 text-primary" />
-                        <span className="text-sm text-muted-foreground">Total Gigs</span>
+                        <span className="text-sm text-muted-foreground">
+                          Total Gigs
+                        </span>
                       </div>
-                      <div className="text-3xl font-bold">{stats.totalGigs}</div>
+                      <div className="text-3xl font-bold">
+                        {stats.totalGigs}
+                      </div>
                     </div>
 
                     <div>
                       <div className="flex items-center gap-2 mb-2">
                         <Star className="w-5 h-5 text-yellow-500" />
-                        <span className="text-sm text-muted-foreground">Average Rating</span>
+                        <span className="text-sm text-muted-foreground">
+                          Average Rating
+                        </span>
                       </div>
-                      <div className="text-3xl font-bold">{stats.averageRating}/5.0</div>
+                      <div className="text-3xl font-bold">
+                        {stats.averageRating}/5.0
+                      </div>
                     </div>
 
                     <div>
                       <div className="flex items-center gap-2 mb-2">
                         <Clock className="w-5 h-5 text-accent" />
-                        <span className="text-sm text-muted-foreground">On-Time Delivery</span>
+                        <span className="text-sm text-muted-foreground">
+                          On-Time Delivery
+                        </span>
                       </div>
-                      <div className="text-3xl font-bold text-accent">{stats.onTimeDelivery}%</div>
+                      <div className="text-3xl font-bold text-accent">
+                        {stats.onTimeDelivery}%
+                      </div>
                     </div>
                   </div>
 
                   <div className="mt-6">
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-muted-foreground">Reputation Progress</span>
+                      <span className="text-muted-foreground">
+                        Reputation Progress
+                      </span>
                       <span className="font-medium">Next milestone: 95</span>
                     </div>
                     <Progress value={stats.overallScore} className="h-3" />
@@ -294,7 +318,9 @@ export default function ReputationPage() {
                     <Star className="w-5 h-5 text-yellow-500" />
                     Client Reviews
                   </CardTitle>
-                  <CardDescription>What clients say about your work</CardDescription>
+                  <CardDescription>
+                    What clients say about your work
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -316,12 +342,16 @@ export default function ReputationPage() {
                             <div className="flex-1">
                               <div className="flex items-center justify-between mb-2">
                                 <div>
-                                  <div className="font-semibold">{review.clientName}</div>
+                                  <div className="font-semibold">
+                                    {review.clientName}
+                                  </div>
                                   <div className="text-sm text-muted-foreground">
                                     {review.gigTitle}
                                   </div>
                                 </div>
-                                <div className="text-sm text-muted-foreground">{review.date}</div>
+                                <div className="text-sm text-muted-foreground">
+                                  {review.date}
+                                </div>
                               </div>
 
                               <div className="flex items-center gap-1 mb-2">
@@ -335,10 +365,14 @@ export default function ReputationPage() {
                                     }`}
                                   />
                                 ))}
-                                <span className="ml-2 font-semibold">{review.rating}.0</span>
+                                <span className="ml-2 font-semibold">
+                                  {review.rating}.0
+                                </span>
                               </div>
 
-                              <p className="text-sm text-muted-foreground">{review.comment}</p>
+                              <p className="text-sm text-muted-foreground">
+                                {review.comment}
+                              </p>
                             </div>
                           </div>
                         </CardContent>
@@ -357,7 +391,9 @@ export default function ReputationPage() {
                     <BadgeCheck className="w-5 h-5 text-primary" />
                     NFT Badges & Credentials
                   </CardTitle>
-                  <CardDescription>Your verifiable on-chain achievements</CardDescription>
+                  <CardDescription>
+                    Your verifiable on-chain achievements
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-3 gap-4">
@@ -386,10 +422,13 @@ export default function ReputationPage() {
                           </div>
 
                           <h3 className="font-semibold mb-1">{badge.name}</h3>
-                          <p className="text-xs text-muted-foreground mb-3">{badge.description}</p>
+                          <p className="text-xs text-muted-foreground mb-3">
+                            {badge.description}
+                          </p>
 
                           <Badge className={getRarityBadge(badge.rarity)}>
-                            {badge.rarity.charAt(0).toUpperCase() + badge.rarity.slice(1)}
+                            {badge.rarity.charAt(0).toUpperCase() +
+                              badge.rarity.slice(1)}
                           </Badge>
 
                           {!badge.earned && badge.progress !== undefined && (
@@ -397,12 +436,19 @@ export default function ReputationPage() {
                               <div className="text-xs text-muted-foreground mb-1">
                                 Progress: {badge.progress}/10
                               </div>
-                              <Progress value={(badge.progress / 10) * 100} className="h-1.5" />
+                              <Progress
+                                value={(badge.progress / 10) * 100}
+                                className="h-1.5"
+                              />
                             </div>
                           )}
 
                           {badge.earned && (
-                            <Button variant="outline" size="sm" className="w-full mt-3">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              className="w-full mt-3"
+                            >
                               View on Explorer
                             </Button>
                           )}
@@ -421,11 +467,16 @@ export default function ReputationPage() {
                       <Shield className="w-8 h-8 text-white" />
                     </div>
                     <div className="flex-1">
-                      <div className="font-semibold text-lg mb-1">Reputation SBT (Soulbound Token)</div>
-                      <div className="text-sm text-muted-foreground mb-2">
-                        Score: {stats.overallScore}/100 • Token ID: #0x7f2a...9b3c
+                      <div className="font-semibold text-lg mb-1">
+                        Reputation SBT (Soulbound Token)
                       </div>
-                      <Badge className="bg-primary text-white">Non-Transferable</Badge>
+                      <div className="text-sm text-muted-foreground mb-2">
+                        Score: {stats.overallScore}/100 • Token ID:
+                        #0x7f2a...9b3c
+                      </div>
+                      <Badge className="bg-primary text-white">
+                        Non-Transferable
+                      </Badge>
                     </div>
                     <Button variant="outline">View on Explorer</Button>
                   </div>
@@ -441,7 +492,9 @@ export default function ReputationPage() {
                     <Trophy className="w-5 h-5 text-yellow-500" />
                     Achievements Unlocked
                   </CardTitle>
-                  <CardDescription>Milestones you've reached on the platform</CardDescription>
+                  <CardDescription>
+                    Milestones you've reached on the platform
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="grid md:grid-cols-2 gap-4">
@@ -467,7 +520,9 @@ export default function ReputationPage() {
                             </div>
                             <div className="flex-1">
                               <div className="flex items-center gap-2 mb-1">
-                                <h3 className="font-semibold">{achievement.title}</h3>
+                                <h3 className="font-semibold">
+                                  {achievement.title}
+                                </h3>
                                 {achievement.achieved && (
                                   <CheckCircle className="w-4 h-4 text-accent" />
                                 )}
@@ -491,20 +546,39 @@ export default function ReputationPage() {
                     <Target className="w-5 h-5 text-primary" />
                     Upcoming Achievements
                   </CardTitle>
-                  <CardDescription>Goals you're working towards</CardDescription>
+                  <CardDescription>
+                    Goals you're working towards
+                  </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-3">
                     {[
-                      { name: "Century Club", desc: "Complete 100 gigs", progress: 47 },
-                      { name: "5-Star Specialist", desc: "Get 50 five-star reviews", progress: 32 },
-                      { name: "Speed Demon", desc: "Complete 20 gigs early", progress: 18 },
+                      {
+                        name: "Century Club",
+                        desc: "Complete 100 gigs",
+                        progress: 47,
+                      },
+                      {
+                        name: "5-Star Specialist",
+                        desc: "Get 50 five-star reviews",
+                        progress: 32,
+                      },
+                      {
+                        name: "Speed Demon",
+                        desc: "Complete 20 gigs early",
+                        progress: 18,
+                      },
                     ].map((goal, index) => (
-                      <div key={index} className="p-3 rounded-lg bg-card/50 border border-border">
+                      <div
+                        key={index}
+                        className="p-3 rounded-lg bg-card/50 border border-border"
+                      >
                         <div className="flex justify-between items-center mb-2">
                           <div>
                             <div className="font-semibold">{goal.name}</div>
-                            <div className="text-sm text-muted-foreground">{goal.desc}</div>
+                            <div className="text-sm text-muted-foreground">
+                              {goal.desc}
+                            </div>
                           </div>
                           <Badge variant="outline">{goal.progress}%</Badge>
                         </div>
@@ -526,10 +600,18 @@ export default function ReputationPage() {
               <div className="flex-1">
                 <h3 className="font-semibold mb-2">Build Your Reputation</h3>
                 <ul className="text-sm text-muted-foreground space-y-2">
-                  <li>✓ Complete gigs on time to increase your reputation score</li>
-                  <li>✓ High ratings unlock better opportunities and higher advance limits</li>
+                  <li>
+                    ✓ Complete gigs on time to increase your reputation score
+                  </li>
+                  <li>
+                    ✓ High ratings unlock better opportunities and higher
+                    advance limits
+                  </li>
                   <li>✓ Earn NFT badges that are verifiable on-chain</li>
-                  <li>✓ Your reputation is stored as a non-transferable Soulbound Token</li>
+                  <li>
+                    ✓ Your reputation is stored as a non-transferable Soulbound
+                    Token
+                  </li>
                 </ul>
               </div>
             </div>
