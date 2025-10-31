@@ -33,6 +33,18 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  webpack: (config) => {
+    config.resolve = config.resolve ?? {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      "@react-native-async-storage/async-storage": path.resolve(
+        __dirname,
+        "src/lib/shims/async-storage.ts",
+      ),
+    };
+
+    return config;
+  },
 };
 
 export default nextConfig;
