@@ -37,7 +37,7 @@ if (fs.existsSync(distDir) && !fs.existsSync(legacyManifestPath)) {
   console.log("[create-routes-manifest] Added fallback .next/routes-manifest.json for Vercel.");
 
   if (process.env.VERCEL === "1") {
-    const duplicatedPath = path.join(process.cwd(), legacyManifestPath);
+    const duplicatedPath = path.join(process.cwd(), ".next", "routes-manifest.json");
     if (!fs.existsSync(duplicatedPath)) {
       fs.mkdirSync(path.dirname(duplicatedPath), { recursive: true });
       fs.copyFileSync(legacyManifestPath, duplicatedPath);
